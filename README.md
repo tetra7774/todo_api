@@ -10,6 +10,29 @@ Udemyでspringbootとopenapiの講義を受けたので、その際に自作し�
 
 実際に実装したAPIは資料の76p以降に記載されている通りとなる。
 
+また、gradleの設定(プラグインやdependenciesのバージョン)は噛み合わせが悪いとエラーがよく出る。自作した際のぷらぐいんとdependenciesを下記に記載しておく。
+~~~
+plugins {
+	id 'org.springframework.boot' version '2.7.6'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+	id "org.openapi.generator" version "5.3.0"
+}
+~
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.1'
+	compileOnly 'io.swagger:swagger-annotations:1.6.5'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+~~~
+
 ## 3.参考にしたリンク
 - [JSON Schema](https://azisava.sakura.ne.jp/programming/0015.html)
 
